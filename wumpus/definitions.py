@@ -1,0 +1,8 @@
+
+HERO_TYPE = '🤴'
+WUNPUS_TYPE = '🦬'
+BURACO_TYPE = '🕳️'
+OURO_TYPE = '🪙'
+EMPTY_TYPE = ''
+
+UP, DOWN, LEFT, RIGHT = range(0, 4)
