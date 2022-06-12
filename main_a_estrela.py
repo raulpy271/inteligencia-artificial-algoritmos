@@ -1,7 +1,6 @@
 
 from busca_A_estrela.distancias import Distancias
-from busca_A_estrela.busca import obtem_proximo_no_usando_heuristica
-from busca_A_estrela.heuristica import obtem_valor_heuristico
+from busca_A_estrela.busca import busca_a_estrela
 from busca_em_profundidade.src.graph import Graph
 
 if __name__ == '__main__':
@@ -25,13 +24,26 @@ if __name__ == '__main__':
     cities.insert(node='pitesti', adjacent_to='bucarest', weight=101)
 
     distancias.add_distancias('arad', 'bucarest', 366)
-    distancias.add_distancias('zerind', 'bucarest', 374)
+    distancias.add_distancias('bucarest', 'bucarest', 0)
+    distancias.add_distancias('craiova', 'bucarest', 160)
+    distancias.add_distancias('brobeta', 'bucarest', 242)
+    distancias.add_distancias('eforie', 'bucarest', 161)
+    distancias.add_distancias('fagaras', 'bucarest', 176)
+    distancias.add_distancias('giurgiu', 'bucarest', 77)
+    distancias.add_distancias('hirsova', 'bucarest', 151)
+    distancias.add_distancias('lasi', 'bucarest', 226)
+    distancias.add_distancias('lugoj', 'bucarest', 244)
+    distancias.add_distancias('mehadia', 'bucarest', 241)
+    distancias.add_distancias('neamt', 'bucarest', 234)
+    distancias.add_distancias('oradea', 'bucarest', 380)
+    distancias.add_distancias('pitesti', 'bucarest', 100)
+    distancias.add_distancias('rimmicu', 'bucarest', 193)
     distancias.add_distancias('sibiu', 'bucarest', 253)
     distancias.add_distancias('timisoara', 'bucarest', 329)
-
-    proximos = cities.get_relations_of('arad')
-
+    distancias.add_distancias('urziceni', 'bucarest', 80)
+    distancias.add_distancias('vaslui', 'bucarest', 199)
+    distancias.add_distancias('zerind', 'bucarest', 374)
 
     print(
-        obtem_proximo_no_usando_heuristica('arad', proximos, 'bucarest', cities, distancias)
+        busca_a_estrela(cities, 'arad', 'bucarest', distancias)
     )
