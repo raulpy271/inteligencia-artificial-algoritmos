@@ -1,6 +1,6 @@
 
-from src.graph import Graph
-from src.search import busca_em_profundidade
+from utils.graph import Graph
+from busca_em_profundidade.busca import busca_em_profundidade
 
 if __name__ == '__main__':
     cities = Graph()

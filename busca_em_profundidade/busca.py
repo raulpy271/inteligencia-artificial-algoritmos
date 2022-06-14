@@ -1,5 +1,5 @@
 
-from src.graph import Graph
+from utils.graph import Graph
 
 def get_next_node(visited_nodes, nodes):
     for node_name, weight in nodes:
