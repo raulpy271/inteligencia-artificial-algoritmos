@@ -1,11 +1,11 @@
 
-from busca_A_estrela.distancias import Distancias
-from busca_A_estrela.busca import busca_a_estrela
-from busca_em_profundidade.src.graph import Graph
+from busca_A_estrela.busca import busca_a_estrela, obtem_proximo_no_usando_heuristica
+from utils.graph import Graph
+from utils.plano_cartesiano import PlanoCartesiano
 
 if __name__ == '__main__':
     cities = Graph()
-    distancias = Distancias()
+    plano = PlanoCartesiano()
     cities.insert(node='arad', adjacent_to='timisoara', weight=118)
     cities.insert(node='arad', adjacent_to='sibiu', weight=140)
     cities.insert(node='arad', adjacent_to='zerind', weight=75)
@@ -23,27 +23,21 @@ if __name__ == '__main__':
     cities.insert(node='craiova', adjacent_to='pitesti', weight=138)
     cities.insert(node='pitesti', adjacent_to='bucarest', weight=101)
 
-    distancias.add_distancias('arad', 'bucarest', 366)
-    distancias.add_distancias('bucarest', 'bucarest', 0)
-    distancias.add_distancias('craiova', 'bucarest', 160)
-    distancias.add_distancias('brobeta', 'bucarest', 242)
-    distancias.add_distancias('eforie', 'bucarest', 161)
-    distancias.add_distancias('fagaras', 'bucarest', 176)
-    distancias.add_distancias('giurgiu', 'bucarest', 77)
-    distancias.add_distancias('hirsova', 'bucarest', 151)
-    distancias.add_distancias('lasi', 'bucarest', 226)
-    distancias.add_distancias('lugoj', 'bucarest', 244)
-    distancias.add_distancias('mehadia', 'bucarest', 241)
-    distancias.add_distancias('neamt', 'bucarest', 234)
-    distancias.add_distancias('oradea', 'bucarest', 380)
-    distancias.add_distancias('pitesti', 'bucarest', 100)
-    distancias.add_distancias('rimmicu', 'bucarest', 193)
-    distancias.add_distancias('sibiu', 'bucarest', 253)
-    distancias.add_distancias('timisoara', 'bucarest', 329)
-    distancias.add_distancias('urziceni', 'bucarest', 80)
-    distancias.add_distancias('vaslui', 'bucarest', 199)
-    distancias.add_distancias('zerind', 'bucarest', 374)
+    plano.add_pontos('arad', 20, 75)
+    plano.add_pontos('timisoara', 25, 45)
+    plano.add_pontos('zerind', 30, 85)
+    plano.add_pontos('oradea', 40, 100)
+    plano.add_pontos('lugoj', 50, 40)
+    plano.add_pontos('mehadia', 50, 25)
+    plano.add_pontos('brobeta', 50, 10)
+    plano.add_pontos('craiova', 75, 5)
+    plano.add_pontos('sibiu', 60, 65)
+    plano.add_pontos('rimmicu', 70, 50)
+    plano.add_pontos('pitesti', 100, 35)
+    plano.add_pontos('fagaras', 95, 60)
+    plano.add_pontos('bucarest', 125, 20)
+
 
     print(
-        busca_a_estrela(cities, 'arad', 'bucarest', distancias)
+        busca_a_estrela(cities, 'arad', 'oradea', plano)
     )
