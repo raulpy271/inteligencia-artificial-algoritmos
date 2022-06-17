@@ -3,7 +3,7 @@ from busca_A_estrela.busca import busca_a_estrela, obtem_proximo_no_usando_heuri
 from utils.graph import Graph
 from utils.plano_cartesiano import PlanoCartesiano
 
-if __name__ == '__main__':
+def executa_busca_exemplo():
     cities = Graph()
     plano = PlanoCartesiano()
     cities.insert(node='arad', adjacent_to='timisoara', weight=118)
@@ -37,7 +37,10 @@ if __name__ == '__main__':
     plano.add_pontos('fagaras', 95, 60)
     plano.add_pontos('bucarest', 125, 20)
 
+    return busca_a_estrela(cities, 'arad', 'bucarest', plano)
+
+if __name__ == '__main__':
 
     print(
-        busca_a_estrela(cities, 'arad', 'oradea', plano)
+        executa_busca_exemplo()
     )

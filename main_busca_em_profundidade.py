@@ -2,7 +2,7 @@
 from utils.graph import Graph
 from busca_em_profundidade.busca import busca_em_profundidade
 
-if __name__ == '__main__':
+def executa_busca_exemplo():
     cities = Graph()
     cities.insert(node='arad', adjacent_to='timisoara', weight=118)
     cities.insert(node='arad', adjacent_to='sibiu', weight=140)
@@ -21,6 +21,10 @@ if __name__ == '__main__':
     cities.insert(node='craiova', adjacent_to='pitesti', weight=138)
     cities.insert(node='pitesti', adjacent_to='bucarest', weight=101)
 
+    return busca_em_profundidade(cities, 'arad', 'bucarest')
+
+if __name__ == '__main__':
+
     print(
-        busca_em_profundidade(cities, 'arad', 'bucarest')
+        executa_busca_exemplo()
     )
